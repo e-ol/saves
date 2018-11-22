@@ -35,7 +35,7 @@ installé.
 
 ##### Autres dépendances
 `yarn global add knex-migrator grunt-cli ember-cli bower` installera les
-dernière dépendances nécessaires à Ghost.
+dernières dépendances nécessaires à Ghost.
 
 ## Fork
 J'ai déjà créé les forks du projet sous [e-ol/Ghost](https://github.com/e-ol/Ghost.git)
