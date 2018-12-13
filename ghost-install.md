@@ -35,7 +35,7 @@ installé.
 
 ##### Autres dépendances
 `yarn global add knex-migrator grunt-cli ember-cli bower` installera les
-dernière dépendances nécessaires à Ghost.
+dernières dépendances nécessaires à Ghost.
 
 ## Fork
 J'ai déjà créé les forks du projet sous [e-ol/Ghost](https://github.com/e-ol/Ghost.git)
@@ -58,7 +58,7 @@ git remote set-url upstream https://github.com/TryGhost/Ghost.git
 Pour finir, si vous voulez utiliser mon fork :
 `git remote add origin https://github.com/e-ol/Ghost.git`
 Sinon, faites la commande suivante sur votre fork **en prenant soin de changer
-<identifiant> par votre identifiant Github** : `git remote add origin
+\<identifiant\> par votre identifiant Github** : `git remote add origin
 https://github.com/<identifiant>/Ghost.git`.
 
 Pour Ghost-Admin maintenant :
@@ -68,7 +68,7 @@ git remote rename origin upstream
 git remote set-url upstream https://github.com/TryGhost/Ghost-Admin.git
 ```
 Puis *mon* fork : `git remote add origin https://e-ol/Ghost-Admin.git` **ou** le
-votre (en changeant *<identifiant>* encore) : `git remote add origin
+votre (en changeant *\<identifiant\>* encore) : `git remote add origin
 https://<identifiant>/Ghost-Admin.git`.
 Un dernier détail : `git checkout master` puis `cd ../..` pour revenir dans de
 répertoir de Ghost.\
