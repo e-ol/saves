@@ -27,5 +27,27 @@ l'article est correctement vide à la base - il est donc correctement initialis�
 et n'affiche `null` qu'après avoir été modifié, donc après avoir fait appel à la
 fonction de sauvegarde automatique.
 
-Ghost utilise des thèmes pour afficher ses pages HTML. Pour faire l'interface
-entre les thèmes et le contenu présent dans
+Ghost utilise des thèmes pour gérer le front-end. Pour faire l'interface entre
+les thèmes et le contenu présent dans les bases de données, Ghost utilise des
+"helpers". Les helpers agissent comme un moteur de templates : dans le contenu
+HTML, préciser `{{content}}` fait appel au helper du même nom (sous
+`Ghost/core/server/helpers`). Dans le thème par défaut de Ghost, l'article est
+visible sous plusieurs formes : des "cards", où un résumé de l'article est
+présenté, sont visibles sur la page d’accueil et des pages où l'article est
+présenté dans son intégralité. Le bug ne s'affichait que dans le deuxième cas.
+Vu que les helpers appelés dans les deux cas pour afficher le contenu ne sont
+pas les mêmes - respectivement `excerpt` et `content` - on en a déduit que le
+problème venait probablement (au moins en partie) de là : si deux helpers censés
+afficher presque la même chose (`excerpt` renvoi juste les premières lignes que
+`content` est censé renvoyer).
+
+### Résolution
+Avec toutes ces informations en main, la suite n'est pas compliquée, tiens en
+trois lignes et est assez explicite :
+``` javascript
+// In `Ghost/core/server/helpers/content.js`
+if (this.html === null) {
+    this.html = '';
+}
+```
+Après discussion avec les mainteneurs de Ghost, il s'avère que ce bug a
